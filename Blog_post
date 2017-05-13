@@ -1,3 +1,4 @@
+Adding tags
 ## List Posts
 
 	GET /posts
@@ -9,6 +10,7 @@
 		"id": 1,
 		"title": "Hello World",
 		"body": "My first blog post"
+		"tags":"Tag name"
 	}]
 
 ## Create Post
@@ -17,7 +19,8 @@
 
 	{
 		"title": "Hello World",
-		"body": "My first blog post"	
+		"body": "My first blog post"
+		"tags":"Tag name"	
 	}
 	---
 	200 OK
@@ -27,6 +30,7 @@
 		"id": 1,
 		"title": "Hello World",
 		"body": "My first blog post"
+		"tags":"Tag name"
 	}
 
 ## Get Post
@@ -40,15 +44,19 @@
 		"id": 1,
 		"title": "Hello World",
 		"body": "My first blog post"
+		"tags":"Tag name"
 	}
 
-## Update Post
+## Update Post adding tag
 
-	PUT /posts/1
+	PATCH /posts/1
 	{
-		"id": 1,
-		"title": "Hello World",
-		"body": "My first blog post with some edits"
+		"add" : {
+		"tags":"Tag name"
+		},
+		"delete": {
+		"tags":"old_tags"
+		}
 	}
 
 	---
@@ -59,6 +67,7 @@
 		"id": 1,
 		"title": "Hello World",
 		"body": "My first blog post with some edits"
+		"tags":"Tag name"
 	}
 
 ## Delete Post
@@ -69,3 +78,23 @@
 	Content-Type: application/json
 
 	{}
+
+## Tags
+	Get the tags
+	GET /tags/tagname/posts
+
+	GET /tags/tagname (always includes posts in the tag representation)
+
+	/tag/tagname?expaln=true
+
+
+	get posts with tag A and tag B
+	GET /posts?tag=A&tag=B
+
+Adding a new tag to a post
+PUT /posts/1/tags/new-tag
+
+Deleting the old tag
+DELETE /posts/1/tags/old-tag
+
+
