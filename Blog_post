@@ -1,0 +1,71 @@
+## List Posts
+
+	GET /posts
+	---
+	200 OK
+	Content-Type: application/json
+
+	[{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post"
+	}]
+
+## Create Post
+
+	POST /posts
+
+	{
+		"title": "Hello World",
+		"body": "My first blog post"	
+	}
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post"
+	}
+
+## Get Post
+
+	GET /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post"
+	}
+
+## Update Post
+
+	PUT /posts/1
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits"
+	}
+
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits"
+	}
+
+## Delete Post
+
+	DELETE /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{}
